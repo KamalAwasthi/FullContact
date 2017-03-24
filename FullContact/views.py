@@ -11,13 +11,12 @@ def getFullContact(request):
     if request.method == 'POST':
         email = GetEmail(request.POST)
         r = getContacts(email['email'].value())
-    	response = json.loads(r)
-    	responseStatus = response['status']
-
-    	try:
-    		photos = response['photos']
-    	except Exception as e:
-    		photos = ''
+        response = json.loads(r)
+        responseStatus = response['status']
+        try:
+        	photos = response['photos']
+        except Exception as e:
+        	photos = ''
 
     	try:
     		contactInfo = response['contactInfo']
@@ -47,5 +46,3 @@ def getFullContact(request):
     else:
     	email = GetEmail()
     return render(request,'FullContacts/getEmail.html',{'form':email})
-
-
