@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>GET FULL CONTACT DETAIL</title>
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container">
+    <div class="row">
+
+        <div class="row">
+            <div class="col-sm-8">
+
+                <h4 class="page-header">Search any Email:</h4>
+                <form action="/" method="post">
+                {% csrf_token %}
+                    <div class="form-group float-label-control">
+                        <label for="getFullContact">Email</label>
+                        <input type="email" name="email" class="form-control" placeholder="Email">
+                    </div>
+                <input type="submit" value="Search" class="glyphicon glyphicon-search"/>
+                </form>
+                <hr>
+                {{msg}}
+                <div style="width: 50%;float: left;">
+                <h1>{{contactInfo.fullName}}</h1>
+                {% if contactInfo %}
+                <p>website links:</p>
+                {% endif %}
+                {% for i in contactInfo.websites %}
+                <p><a href={{i.url}}>{{i.url}}</a></p>
+                {% endfor %}
+                {% for i in socialProfiles %}
+                <h3><u>{{i.typeName}} Profile:</u> </h3>
+                <p> username: {{i.username}}</p>
+                <p> url: <a href={{i.url}}>{{i.url}}</a></p>
+                <p> bio : {{i.bio}}</p>
+                {% endfor %}
+                <br>
+                </div>
+                <div style="float: right;width: 50%;">
+                {% for i in photos %}
+                <p><img src={{i.url}} height="300px"></p>
+                {% endfor %}
+                </div>
+
+
+
+</body>
+</html>
