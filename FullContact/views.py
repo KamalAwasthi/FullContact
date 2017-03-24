@@ -12,7 +12,7 @@ def getFullContact(request):
         email = GetEmail(request.POST)
         r = getContacts(email['email'].value())
         response = json.loads(r)
-    	responseStatus = response['status']
+        responseStatus = response['status']
 
     	try:
     		photos = response['photos']
