@@ -55,7 +55,8 @@ def getFullContact(request):
                     'photos_first':photos_first, 'organizations':organizations})
 
         if(responseStatus == 202):
-        	return HttpResponse("Your Query has been recorded. It is queued for search, please check again after some time.")
+            msg = "Your Query has been recorded. It is queued for search, please check again after some time."
+            return render(request,'FullContacts/oops.html',{'msg':msg})
         else:
         	return render(request,'FullContacts/oops.html',{'msg':response['message']})
 

@@ -11,11 +11,11 @@
   <!-- <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/> -->
   <!-- <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/> -->
 </head>
-<body bgcolor="">
+<body  >
 <div class="navbar-fixed">
  <nav class="light-blue darken-3">
     <div class="nav-wrapper">
-      <a href="#" class="brand-logo right">Email-e-Fy</a>
+      <a href="#" class="brand-logo right">FullContact</a>
       <form action="/" method="post">
         {% csrf_token %}
         <div class="input-field">
@@ -32,9 +32,9 @@
   <br><br>
 
 {% if text %}
-    <div class="section">
+    <div class="section" >
       <!--   Icon Section   -->
-<div class="col l12 ">
+<div class="col l12 " style="box-shadow: 5px 5px 2px #888888;">
 <div class="card horizontal">
 <div class="card-image">
 {% if photos_first %}
@@ -46,7 +46,7 @@
   <h3>{{contactInfo.fullName}}</h3>
   {% if organizations %}
     <ul>
-        <div class="chip">
+        <div class="chip" style="color:#0277bd">
         Present Organization
         </div>
         {% for i in organizations %}
@@ -55,7 +55,7 @@
           {% endif %}
         {% endfor %}
         <br><br>
-        <div class="chip">
+        <div class="chip" style="color:#0277bd">
         Past Organization
         </div>
         {% for i in organizations %}
@@ -67,7 +67,7 @@
         {% endfor %}
     </ul>
   {% else %}
-    <div class="chip">
+    <div class="chip" style="color:#0277bd">
     No Organization
     </div>
   {% endif %}
@@ -83,7 +83,7 @@
 </div>
 </div>
 
-<div class="col s12 m7">
+<div class="col s12 m7" style="box-shadow: 5px 5px 2px #888888;">
 <div class="card horizontal">
   <div class="card-stacked">
     <div class="card-content">
@@ -113,15 +113,16 @@
 <div class="card-stacked">
   <div class="card-content ">
   <h3>Website</h3>
-  <p><h5><a href={{website_first.url}} style="color: white;text-decoration: underline;">{{website_first.url}}</a></h5></p>
+  <h5><a href={{website_first.url}} style="color: white;text-decoration: underline;">{{website_first.url}}</a></h5>
   </div>
 </div>
 </div>
 </div>
 {% endif %}
-    </div>
+</div>
+
 {% if socialProfiles %}
-<div class="col s12 m7">
+<div class="col s12 m7" style="box-shadow: 4px 6px 3px #888888;">
   <div class="card horizontal">
     <div class="card-stacked">
       <div class="card-content">
@@ -130,8 +131,8 @@
         {% for i in socialProfiles %}
             <li class="collection-item avatar">
               <span class="title"><h5> &#9899; {{i.typeName}}</h5></span>
-              <p> username: {{i.username}}</p>
-              <p> url: <a href={{i.url}}>{{i.url}}</a></p>
+              <p style="font-size: 1.25em"> <b>username:</b> {{i.username}}</p>
+              <p > <b>url:</b> <a href={{i.url}}>{{i.url}}</a></p>
             </li>
          {% endfor %}   
           </ul>
@@ -139,6 +140,7 @@
     </div>
   </div>
 </div>
+<br><br>
 {% endif %}
 
 <!--     <div class="section">
