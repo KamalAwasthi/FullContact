@@ -1,22 +1,71 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>GET FULL CONTACT DETAIL</title>
-    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
+  <title>Seach by E-Mail | home</title>
+
+  <!-- CSS  -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.1/css/materialize.min.css">
+  <!-- <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/> -->
+  <!-- <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/> -->
 </head>
-<body>
-<div class="container">
+<body bgcolor="">
+<div class="navbar-fixed">
+ <nav class="light-blue darken-3">
+    <div class="nav-wrapper">
+      <a href="#" class="brand-logo right">Email-e-Fy</a>
+      <form action="/" method="post">
+        {% csrf_token %}
+        <div class="input-field">
+          <input id="email" type="email" name="email" placeholder="Search any Email" required>
+          <label class="label-icon" for="search"><i class="material-icons">search</i></label>
+          <!-- <i class="material-icons">close</i> -->
+        </div>
+      </form>
+    </div>
+  </nav>
+  </div>
+
     <div class="row">
+    <div class="col l12 ">
+      <div class="card light-blue darken-3">
+        <div class="card-content white-text">
+          <span class="card-title"><h3>Server Returned the following response:</h3><h5>
+          {{msg}}<h5></span>
+        </div>
+      </div>
+    </div>
+    </div>
 
-        <div class="row">
-            <div class="col-sm-8">
+<div class="section no-pad-bot" id="index-banner" style="width: 100 vh; height: 100 vh;">
+<div class="container">
+  <br><br><br><br>
+  <h1 class="header center orange-text jumbotron" style="font-size: 7em;">Search any Email</h1>
+  <div class="row center" style="font-size: 5em;">
+    <h5 class="header col s12 light">A fast web-app to locate all the social-links by only one Email</h5>
+  </div>
+  <div class="center" >
+      <div class="row">
+        <div class="col s12">
+          
+          <form action="/" method="post" class="inline">
+          {% csrf_token %}
+          <div class="input-field col s12">
+            <input id="email" type="email" name="email" class="validate" placeholder="Enter an Email to get started">
+            <label for="search" data-error="wrong" data-success="right" ></label>
+          </div>
+        </form>  
+        </div>
+  </div>
+  <br><br>
+</div>    
 
-                <h4 class="page-header">OOOPS!! something went wrong :( . We recieved following response from the server:</h4>
-                {{msg}}
-                <div style="float: right;">
-                <a href="/"><button class="btn btn-primary"><-Back</button></a> 
-                </div>                   
+  <!--  Scripts-->
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <!-- <script src="js/materialize.js"></script> -->
+  <!-- <script src="js/init.js"></script> -->
 
-
-</body>
+  </body>
 </html>
